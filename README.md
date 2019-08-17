@@ -191,3 +191,6 @@ loggerBlock();
 ```
 
 ``` console
+2019-08-17 12:05:52.056082-0500 SlowWorker[18558:2942115] I am just glad they didn't call it a lambda
+2019-08-17 12:05:52.057471-0500 SlowWorker[18558:2942115] integerVariable = 0
+2019-08-17 12:05:52.059486-0500 SlowWorker[18558:2942115] a == 47
