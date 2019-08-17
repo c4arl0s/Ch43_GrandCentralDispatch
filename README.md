@@ -189,3 +189,5 @@ loggerBlock();
     // check the values of our variable again, after calling the block
     NSLog(@"a == %d", integerVariable); // // outputs "a==47"
 ```
+
+``` console
