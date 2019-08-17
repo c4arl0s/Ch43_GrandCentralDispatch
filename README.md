@@ -149,4 +149,24 @@ Ch43_GrandCentralDispatch
 - GCD Queues are strictly first-in, firts-out (FIFO).
 - Units of work are added  to a GCD queu will always be started in the order the were placed in the queue. That being said theyt may not always finish in the same order, since a GCD queue will automatically distribute its work among multiple threads, if possible.
 
+# BLocks
+
+- The idea behind a block is to let a particular chunk of code be treaded like any other C-language type.
+- A block can be assigned to a variable, passed as an argument to a function or method, and executed.
+- In this way blocks can be used as an alternative to the delegate pattern in Objective-C or to callback functions in C.
+
+``` objective-c
+// declare a block variable "loggerBlock"
+void (^loggerBlock)(void);
+```
+
+``` objective-c
+// assign a block 
+loggerBlock = ^{NSLog(@"I am just glad they didn't call it a lambda");};
+```
+
+
+``` objective-c
+// execute the block
+loggerBlock();
 
