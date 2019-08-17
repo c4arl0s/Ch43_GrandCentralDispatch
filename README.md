@@ -125,4 +125,28 @@ Ch43_GrandCentralDispatch
 @end
 ```
 
+# Threading Basics
+
+- keywords: thread, mutex, thread-safe, main thread, 
+
+- Most modern operating Systems support the notion of threads of execution. Each process can contain multiple threads, which all run concurrently.
+- If there is just one processor core, the operating system will switch between all executing threads, much like it switches between all executing processes.
+- If more than one core is available, the threads will be distributed among them, just as processes are.
+
+- Mutex, structure which can ensure that a particular chunck of code cannot be run by multiple threads at once. 
+- This is useful for ensuring correct outcomes when multiple threads access the same data simultaneously, by locking out other threads when one thread is updating a value (in whats called a critical section of your code).
+
+### - A common concern when dealing with threads is the idea of code being thread-safe
+
+- In cocoa Touch, UIKit objects are not thread-safe. They should be executed from within the same thread, which is commonly known as the main thread
+
+# Units of work
+
+- In the 10.6 realese of Mac OS X, GCD made its debut.
+- This technology works not only with objective-c, but also with C and C++.
+- Units of work: paintless background processing, and automatic thread management.
+- One of the key concepts of GCD is the queue.
+- GCD Queues are strictly first-in, firts-out (FIFO).
+- Units of work are added  to a GCD queu will always be started in the order the were placed in the queue. That being said theyt may not always finish in the same order, since a GCD queue will automatically distribute its work among multiple threads, if possible.
+
 
