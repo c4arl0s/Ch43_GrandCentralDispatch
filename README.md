@@ -169,4 +169,23 @@ loggerBlock = ^{NSLog(@"I am just glad they didn't call it a lambda");};
 ``` objective-c
 // execute the block
 loggerBlock();
+```
 
+
+- blocks are similar to the concept of function pointers.
+- blocks can be defined in-line of your code.
+- block can access variables available in the scope where it is created.
+- use storage qualifier __block
+
+``` objective-c
+// define a variable that can be changed by a block
+    __block int integerVariable = 0;
+    // define a block that tries to modify a variable in its scope
+    void(^sillyBlock)(void) = ^{ integerVariable = 47; };
+    // check the value of our variable before calling the block
+    NSLog(@"integerVariable = %d", integerVariable); // outputs "a==0"
+    // execute the block
+    sillyBlock();
+    // check the values of our variable again, after calling the block
+    NSLog(@"a == %d", integerVariable); // // outputs "a==47"
+```
