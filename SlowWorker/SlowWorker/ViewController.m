@@ -64,8 +64,8 @@
 - (IBAction)doWork:(id)sender
 {
     NSDate *startTime = [NSDate date];
-    NSString *fetchData = [self fetchSomethingFromServer];
-    NSString *processedData = [self processData:fetchData];
+    NSString *fetchedData = [self fetchSomethingFromServer];
+    NSString *processedData = [self processData:fetchedData];
     NSString *firstResult = [self calculateFirstResult:processedData];
     NSString *secondResult = [self calculateFirstResult:processedData];
     NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
