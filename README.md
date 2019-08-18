@@ -345,4 +345,4 @@ loggerBlock();
 
 ```
 
-![ezgif-4-9f69076e4431](https://user-images.githubusercontent.com/24994818/63218809-5d05ec80-c129-11e9-933c-909eb7dbdd8d.gif)
+![ezgif-4-627dd175a058](https://user-images.githubusercontent.com/24994818/63218815-b4a45800-c129-11e9-86b1-50c7b1b30cd6.gif)
