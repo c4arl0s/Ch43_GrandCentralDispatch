@@ -350,4 +350,8 @@ loggerBlock();
 # Concurrent Blocks
 
 - Do some programming to make concurrent the process involved in this app, and speed up the performance.
+- You dont need to be performed in sequence
+- Dispatch_group. All blocks that are dispatched asynchronously withing the context of a group, via the dispatch_group_async() function, are set loose to execute as fast as they can, including being distributed to multiple threads for concurrent execution, if possible.
+- We can also use dispatch_group_notify() to specify an additional block that will be executed when all blocks in the group have been run to completion.
+
 
