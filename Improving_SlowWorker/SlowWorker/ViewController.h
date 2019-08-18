@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UITextView *resultsTextView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
 - (IBAction)doWork:(id)sender;
 
