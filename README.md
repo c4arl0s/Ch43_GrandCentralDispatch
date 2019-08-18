@@ -237,3 +237,6 @@ loggerBlock();
     });
 }
 ```
+
+# Giving Some Feedback and add a spinner to know about the process that is in the background.
+
