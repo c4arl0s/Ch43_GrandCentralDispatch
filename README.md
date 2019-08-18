@@ -240,3 +240,56 @@ loggerBlock();
 
 # Giving Some Feedback and add a spinner to know about the process that is in the background.
 
+``` objective-c
+//
+//  ViewController.h
+//  SlowWorker
+//
+//  Created by Carlos Santiago Cruz on 8/17/19.
+//  Copyright © 2019 Carlos Santiago Cruz. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UITextView *resultsTextView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+
+- (IBAction)doWork:(id)sender;
+
+@end
+```
+
+
+``` objective-c
+- (IBAction)doWork:(id)sender
+{
+    NSDate *startTime = [NSDate date];
+    
+    self.resultsTextView.text = @"Updating data ...";
+    self.startButton.enabled = NO;
+    self.startButton.alpha = 0.5f;
+    [self.activityIndicatorView startAnimating];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *fetchData = [self fetchSomethingFromServer];
+        NSString *processedData = [self processData:fetchData];
+        NSString *firstResult = [self calculateFirstResult:processedData];
+        NSString *secondResult = [self calculateFirstResult:processedData];
+        NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.resultsTextView.text = resultsSummary;
+            
+            self.startButton.enabled = YES;
+            self.startButton.alpha = 1.0f;
+            [self.activityIndicatorView stopAnimating];
+            
+        });
+    NSDate *endTime = [NSDate date];
+    NSLog(@"Completed in %f seconds", [endTime timeIntervalSinceDate:startTime]);
+    });
+}
+```
+
