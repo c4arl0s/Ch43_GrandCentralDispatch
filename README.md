@@ -242,29 +242,6 @@ loggerBlock();
 
 ``` objective-c
 //
-//  ViewController.h
-//  SlowWorker
-//
-//  Created by Carlos Santiago Cruz on 8/17/19.
-//  Copyright © 2019 Carlos Santiago Cruz. All rights reserved.
-//
-
-#import <UIKit/UIKit.h>
-
-@interface ViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UITextView *resultsTextView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
-
-- (IBAction)doWork:(id)sender;
-
-@end
-```
-
-
-``` objective-c
-//
 //  ViewController.m
 //  SlowWorker
 //
@@ -302,6 +279,7 @@ loggerBlock();
     // check the values of our variable again, after calling the block
     NSLog(@"a == %d", integerVariable); // // outputs "a==47"
     
+    self.activityIndicatorView.alpha = 0.0f;
 }
 
 - (NSString *)fetchSomethingFromServer
@@ -335,6 +313,8 @@ loggerBlock();
     self.resultsTextView.text = @"Updating data ...";
     self.startButton.enabled = NO;
     self.startButton.alpha = 0.5f;
+    self.activityIndicatorView.alpha = 1.0f;
+    
     [self.activityIndicatorView startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -349,6 +329,7 @@ loggerBlock();
             self.startButton.enabled = YES;
             self.startButton.alpha = 1.0f;
             [self.activityIndicatorView stopAnimating];
+            self.activityIndicatorView.alpha = 0.0f;
             
         });
     NSDate *endTime = [NSDate date];
@@ -361,5 +342,6 @@ loggerBlock();
 // Tapping anywhere on the screen has no effect. In fact, the only way you can interact with your application during this time is by tapping the home button to switch away from it. This is exactly the state of affairs we want to avoid!
 
 @end
+
 ```
 
