@@ -478,7 +478,7 @@ loggerBlock();
 
 # Background Processing.
 
--
+-  This allows your apps to run in the background—in some circumstances, even after the user has pressed the home button.
 -
 -
 -
