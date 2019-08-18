@@ -346,3 +346,8 @@ loggerBlock();
 ```
 
 ![ezgif-4-627dd175a058](https://user-images.githubusercontent.com/24994818/63218815-b4a45800-c129-11e9-86b1-50c7b1b30cd6.gif)
+
+# Concurrent Blocks
+
+- Do some programming to make concurrent the process involved in this app, and speed up the performance.
+
