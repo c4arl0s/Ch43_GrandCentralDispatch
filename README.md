@@ -142,6 +142,13 @@ Ch43_GrandCentralDispatch
 
 # Units of work
 
+- It is imposible to write error-free, multithreaded code.
+- Only a small of fraction of those who write code, nearly 5% are really up to the task of writing heavy-dty multithreaded applications.
+- It is possible to implement some concurrency without too much low-level thread-twisting.
+- The ideas apple is encourages us is to splitting up long-runnung tasks. The system manages the queues for us.
+
+# GCD: Low Level Queueing
+
 - In the 10.6 realese of Mac OS X, GCD made its debut.
 - This technology works not only with objective-c, but also with C and C++.
 - Units of work: paintless background processing, and automatic thread management.
@@ -149,7 +156,7 @@ Ch43_GrandCentralDispatch
 - GCD Queues are strictly first-in, firts-out (FIFO).
 - Units of work are added  to a GCD queu will always be started in the order the were placed in the queue. That being said theyt may not always finish in the same order, since a GCD queue will automatically distribute its work among multiple threads, if possible.
 
-# BLocks
+# Becomming a Blockhead (stupid person)
 
 - The idea behind a block is to let a particular chunk of code be treaded like any other C-language type.
 - A block can be assigned to a variable, passed as an argument to a function or method, and executed.
@@ -197,6 +204,13 @@ loggerBlock();
 ```
 
 # Improving SlowWorker
+
+- It does exist a preexisting global queue that is always available dipatch_get_global_queue().
+- Parameters used in the code are priority and the second is unused with 0.
+- It does exist two kinds of priorities: DISPATCH_QUEUE_PRIORITY_HIGH and DISPATCH_QUEUE_PRIORITY_LOW.
+
+- 
+
 
 ``` objective-c
 - (IBAction)doWork:(id)sender
