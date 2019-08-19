@@ -217,14 +217,12 @@ loggerBlock();
 {
     NSDate *startTime = [NSDate date];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    NSString *fetchData = [self fetchSomethingFromServer];
-    NSString *processedData = [self processData:fetchData];
-    NSString *firstResult = [self calculateFirstResult:processedData];
-    NSString *secondResult = [self calculateFirstResult:processedData];
-    NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.resultsTextView.text = resultsSummary;
-        });
+        NSString *fetchData = [self fetchSomethingFromServer];
+        NSString *processedData = [self processData:fetchData];
+        NSString *firstResult = [self calculateFirstResult:processedData];
+        NSString *secondResult = [self calculateFirstResult:processedData];
+        NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
+        self.resultsTextView.text = resultsSummary;
     NSDate *endTime = [NSDate date];
     NSLog(@"Completed in %f seconds", [endTime timeIntervalSinceDate:startTime]);
     });
