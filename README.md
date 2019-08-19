@@ -111,7 +111,7 @@ Ch43_GrandCentralDispatch
     NSString *fetchData = [self fetchSomethingFromServer];
     NSString *processedData = [self processData:fetchData];
     NSString *firstResult = [self calculateFirstResult:processedData];
-    NSString *secondResult = [self calculateFirstResult:processedData];
+    NSString *secondResult = [self calculateSecondResult:processedData];
     NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
     self.resultsTextView.text = resultsSummary;
     NSDate *endTime = [NSDate date];
@@ -205,13 +205,6 @@ loggerBlock();
 
 # Improving SlowWorker
 
-- It does exist a preexisting global queue that is always available dipatch_get_global_queue().
-- Parameters used in the code are priority and the second is unused with 0.
-- It does exist two kinds of priorities: DISPATCH_QUEUE_PRIORITY_HIGH and DISPATCH_QUEUE_PRIORITY_LOW.
-
-- 
-
-
 ``` objective-c
 - (IBAction)doWork:(id)sender
 {
@@ -220,7 +213,7 @@ loggerBlock();
         NSString *fetchData = [self fetchSomethingFromServer];
         NSString *processedData = [self processData:fetchData];
         NSString *firstResult = [self calculateFirstResult:processedData];
-        NSString *secondResult = [self calculateFirstResult:processedData];
+        NSString *secondResult = [self calculateSecondResult:processedData];
         NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
         self.resultsTextView.text = resultsSummary;
     NSDate *endTime = [NSDate date];
@@ -228,6 +221,13 @@ loggerBlock();
     });
 }
 ```
+
+- It does exist a preexisting global queue that is always available dipatch_get_global_queue().
+- Parameters used in the code are priority and the second is unused with 0.
+- It does exist two kinds of priorities: DISPATCH_QUEUE_PRIORITY_HIGH and DISPATCH_QUEUE_PRIORITY_LOW.
+- The queue is then passed to the dispatch_async() function, along with the block of code that comes after.
+- GCD takes the entire block and passes it to a background thread, where it will be executed one step at a time, just as when it was running in the main thread.
+
 
 # Don’t Forget That Main Thread
 
