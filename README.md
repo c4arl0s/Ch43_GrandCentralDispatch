@@ -125,6 +125,13 @@ Ch43_GrandCentralDispatch
 @end
 ```
 
+```console
+2019-08-19 20:14:22.003797-0500 SlowWorker[26234:3733731] I am just glad they didn't call it a lambda
+2019-08-19 20:14:22.004051-0500 SlowWorker[26234:3733731] integerVariable = 0
+2019-08-19 20:14:22.004187-0500 SlowWorker[26234:3733731] a == 47
+2019-08-19 20:14:44.345018-0500 SlowWorker[26234:3733731] Completed in 10.004602 seconds
+```
+
 # Threading Basics
 
 - keywords: thread, mutex, thread-safe, main thread, 
@@ -210,7 +217,7 @@ loggerBlock();
 {
     NSDate *startTime = [NSDate date];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *fetchData = [self fetchSomethingFromServer];
+        NSString *fetchedData = [self fetchSomethingFromServer];
         NSString *processedData = [self processData:fetchData];
         NSString *firstResult = [self calculateFirstResult:processedData];
         NSString *secondResult = [self calculateSecondResult:processedData];
@@ -221,6 +228,41 @@ loggerBlock();
     });
 }
 ```
+
+
+
+``` console
+2019-08-19 20:22:12.770854-0500 SlowWorker[26369:3742032] I am just glad they didn't call it a lambda
+2019-08-19 20:22:12.771087-0500 SlowWorker[26369:3742032] integerVariable = 0
+2019-08-19 20:22:12.771201-0500 SlowWorker[26369:3742032] a == 47
+=================================================================
+Main Thread Checker: UI API called on a background thread: -[UITextView setText:]
+PID: 26369, TID: 3742775, Thread name: (none), Queue name: com.apple.root.default-qos, QoS: 0
+Backtrace:
+4   SlowWorker                          0x0000000104b3ee37 __25-[ViewController doWork:]_block_invoke + 343
+5   libdispatch.dylib                   0x00000001076e3d7f _dispatch_call_block_and_release + 12
+6   libdispatch.dylib                   0x00000001076e4db5 _dispatch_client_callout + 8
+7   libdispatch.dylib                   0x00000001076e77b9 _dispatch_queue_override_invoke + 1022
+8   libdispatch.dylib                   0x00000001076f5632 _dispatch_root_queue_drain + 351
+9   libdispatch.dylib                   0x00000001076f5fca _dispatch_worker_thread2 + 130
+10  libsystem_pthread.dylib             0x0000000107acd6b3 _pthread_wqthread + 583
+11  libsystem_pthread.dylib             0x0000000107acd3fd start_wqthread + 13
+2019-08-19 20:22:58.759870-0500 SlowWorker[26369:3742775] [reports] Main Thread Checker: UI API called on a background thread: -[UITextView setText:]
+PID: 26369, TID: 3742775, Thread name: (none), Queue name: com.apple.root.default-qos, QoS: 0
+Backtrace:
+4   SlowWorker                          0x0000000104b3ee37 __25-[ViewController doWork:]_block_invoke + 343
+5   libdispatch.dylib                   0x00000001076e3d7f _dispatch_call_block_and_release + 12
+6   libdispatch.dylib                   0x00000001076e4db5 _dispatch_client_callout + 8
+7   libdispatch.dylib                   0x00000001076e77b9 _dispatch_queue_override_invoke + 1022
+8   libdispatch.dylib                   0x00000001076f5632 _dispatch_root_queue_drain + 351
+9   libdispatch.dylib                   0x00000001076f5fca _dispatch_worker_thread2 + 130
+10  libsystem_pthread.dylib             0x0000000107acd6b3 _pthread_wqthread + 583
+11  libsystem_pthread.dylib             0x0000000107acd3fd start_wqthread + 13
+2019-08-19 20:22:58.812060-0500 SlowWorker[26369:3742775] Completed in 10.060935 seconds
+2019-08-19 20:23:13.184545-0500 SlowWorker[26369:3742775] Completed in 10.013715 seconds
+```
+
+
 
 - It does exist a preexisting global queue that is always available dipatch_get_global_queue().
 - Parameters used in the code are priority and the second is unused with 0.
