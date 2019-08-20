@@ -232,6 +232,7 @@ loggerBlock();
 - The values contained by such variables will either be duplicated (if they are plain C types such as int or float) or retained (if they are pointers to objects) so that the valuyes they contain can be used inside the block.
 - When dispatch_async is called in the second line of doWork:, and the block shown in the code is created, __**startime is actually sent a retain message**__, whose return value is assigned to what is essentially a new static variable with the same name (starTime) inside the block.
 - The startTime variable needs to be static inside the block.
+- __block-qualifier variables are not duplicated or retained when used inside a block.
 
 
 # Don’t Forget That Main Thread
