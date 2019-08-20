@@ -279,6 +279,8 @@ Backtrace:
 
 # Don’t Forget That Main Thread
 
+![Screen Shot 2019-08-19 at 8 27 40 PM](https://user-images.githubusercontent.com/24994818/63310318-d33c5780-c2bf-11e9-815a-b449a9082fcd.png)
+
 ``` objective-c
 - (IBAction)doWork:(id)sender
 {
@@ -297,6 +299,13 @@ Backtrace:
     });
 }
 ```
+
+``` console
+2019-08-19 20:27:13.867832-0500 SlowWorker[26423:3746206] I am just glad they didn't call it a lambda
+2019-08-19 20:27:13.868194-0500 SlowWorker[26423:3746206] integerVariable = 0
+2019-08-19 20:27:13.868326-0500 SlowWorker[26423:3746206] a == 47
+2019-08-19 20:27:25.230966-0500 SlowWorker[26423:3746287] Completed in 10.002183 seconds
+
 
 # Giving Some Feedback and add a spinner to know about the process that is in the background.
 
