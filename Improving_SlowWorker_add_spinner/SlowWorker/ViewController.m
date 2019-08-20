@@ -78,7 +78,7 @@
         NSString *fetchData = [self fetchSomethingFromServer];
         NSString *processedData = [self processData:fetchData];
         NSString *firstResult = [self calculateFirstResult:processedData];
-        NSString *secondResult = [self calculateFirstResult:processedData];
+        NSString *secondResult = [self calculateSecondResult:processedData];
         NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultsTextView.text = resultsSummary;
@@ -93,9 +93,5 @@
     NSLog(@"Completed in %f seconds", [endTime timeIntervalSinceDate:startTime]);
     });
 }
-
-// Your app should start up, and pressing the button will make it work for about ten seconds (the sum of all those sleep amounts) before showing the results.
-// During you wait, you will see that the Start Working ! button remains dar blue the entire time, never turning back to its normal color until the "work" is done.
-// Tapping anywhere on the screen has no effect. In fact, the only way you can interact with your application during this time is by tapping the home button to switch away from it. This is exactly the state of affairs we want to avoid!
 
 @end

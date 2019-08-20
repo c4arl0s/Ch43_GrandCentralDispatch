@@ -67,7 +67,7 @@
     NSString *fetchedData = [self fetchSomethingFromServer];
     NSString *processedData = [self processData:fetchedData];
     NSString *firstResult = [self calculateFirstResult:processedData];
-    NSString *secondResult = [self calculateFirstResult:processedData];
+    NSString *secondResult = [self calculateSecondResult:processedData];
     NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
     self.resultsTextView.text = resultsSummary;
     NSDate *endTime = [NSDate date];

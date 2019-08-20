@@ -65,10 +65,10 @@
 {
     NSDate *startTime = [NSDate date];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *fetchData = [self fetchSomethingFromServer];
-        NSString *processedData = [self processData:fetchData];
+        NSString *fetchedData = [self fetchSomethingFromServer];
+        NSString *processedData = [self processData:fetchedData];
         NSString *firstResult = [self calculateFirstResult:processedData];
-        NSString *secondResult = [self calculateFirstResult:processedData];
+        NSString *secondResult = [self calculateSecondResult:processedData];
         NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultsTextView.text = resultsSummary;

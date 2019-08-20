@@ -90,7 +90,7 @@
         });
         
         dispatch_group_async(group, queue, ^{
-            secondResult = [self calculateFirstResult:processedData];
+            secondResult = [self calculateSecondResult:processedData];
         });
         
         dispatch_group_notify(group, queue, ^{
