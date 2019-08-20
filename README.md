@@ -305,7 +305,7 @@ Backtrace:
 2019-08-19 20:27:13.868194-0500 SlowWorker[26423:3746206] integerVariable = 0
 2019-08-19 20:27:13.868326-0500 SlowWorker[26423:3746206] a == 47
 2019-08-19 20:27:25.230966-0500 SlowWorker[26423:3746287] Completed in 10.002183 seconds
-
+```
 
 # Giving Some Feedback and add a spinner to know about the process that is in the background.
 
