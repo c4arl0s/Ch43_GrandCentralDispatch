@@ -230,7 +230,7 @@ loggerBlock();
 - Notice the variable startTime just before the block is created and then use its value at the end of the block, This doesnt seem to make sense.
 ### - If a block accesses any variable from the "the outside" during its execution, then some special setup happens when the block is created, allowing the block acces to those variables.
 - The values contained by such variables will either be duplicated (if they are plain C types such as int or float) or retained (if they are pointers to objects) so that the valuyes they contain can be used inside the block.
-- When dispatch_async is called in the second line of doWork:, and the block shown in the code is created, startime is actually sent a retain message, whose return value is assigned to what is essentially a new static variable with the same name (starTime) inside the block.
+- When dispatch_async is called in the second line of doWork:, and the block shown in the code is created, __**startime is actually sent a retain message**__, whose return value is assigned to what is essentially a new static variable with the same name (starTime) inside the block.
 - The startTime variable needs to be static inside the block.
 
 
