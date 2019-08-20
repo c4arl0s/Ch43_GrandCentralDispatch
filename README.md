@@ -546,8 +546,14 @@ Backtrace:
 @end
 ```
 
-![ezgif-4-95588dcf75e6](https://user-images.githubusercontent.com/24994818/63219043-069bac80-c12f-11e9-8fc8-daae6b035d77.gif)
+![ezgif-5-648eaffc9bda](https://user-images.githubusercontent.com/24994818/63312134-1b5e7880-c2c6-11e9-9b07-925d760c5ddd.gif)
 
+``` console
+2019-08-19 21:10:57.763401-0500 SlowWorker[26870:3787480] I am just glad they didn't call it a lambda
+2019-08-19 21:10:57.763649-0500 SlowWorker[26870:3787480] integerVariable = 0
+2019-08-19 21:10:57.763790-0500 SlowWorker[26870:3787480] a == 47
+2019-08-19 21:11:46.661551-0500 SlowWorker[26870:3788025] Completed in 7.015356 seconds
+```
 
 # Background Processing.
 
