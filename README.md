@@ -392,7 +392,7 @@ Backtrace:
         NSString *fetchData = [self fetchSomethingFromServer];
         NSString *processedData = [self processData:fetchData];
         NSString *firstResult = [self calculateFirstResult:processedData];
-        NSString *secondResult = [self calculateFirstResult:processedData];
+        NSString *secondResult = [self calculateSecondResult:processedData];
         NSString *resultsSummary = [NSString stringWithFormat:@"First [%@]\nSecond: [%@]", firstResult, secondResult];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultsTextView.text = resultsSummary;
@@ -416,7 +416,14 @@ Backtrace:
 
 ```
 
+![ezgif-5-be992f537409](https://user-images.githubusercontent.com/24994818/63311508-de918200-c2c3-11e9-9a24-f9f34126995f.gif)
 
+``` console
+2019-08-19 20:54:06.112240-0500 SlowWorker[26730:3773129] I am just glad they didn't call it a lambda
+2019-08-19 20:54:06.112467-0500 SlowWorker[26730:3773129] integerVariable = 0
+2019-08-19 20:54:06.112583-0500 SlowWorker[26730:3773129] a == 47
+2019-08-19 20:54:41.884841-0500 SlowWorker[26730:3773182] Completed in 10.007888 seconds
+```
 
 # Concurrent Blocks
 
