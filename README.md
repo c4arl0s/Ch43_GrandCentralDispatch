@@ -229,7 +229,7 @@ loggerBlock();
 }
 ```
 
-
+![Screen Shot 2019-08-19 at 8 23 29 PM](https://user-images.githubusercontent.com/24994818/63310184-54471f00-c2bf-11e9-9912-35ef715c5db2.png)
 
 ``` console
 2019-08-19 20:22:12.770854-0500 SlowWorker[26369:3742032] I am just glad they didn't call it a lambda
