@@ -125,6 +125,8 @@ Ch43_GrandCentralDispatch
 @end
 ```
 
+![ezgif-5-ead9ff1b0ed2](https://user-images.githubusercontent.com/24994818/63310594-0206fd80-c2c1-11e9-8704-ff81df4f7db2.gif)
+
 ```console
 2019-08-19 20:14:22.003797-0500 SlowWorker[26234:3733731] I am just glad they didn't call it a lambda
 2019-08-19 20:14:22.004051-0500 SlowWorker[26234:3733731] integerVariable = 0
