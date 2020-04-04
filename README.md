@@ -320,7 +320,7 @@ Backtrace:
 2019-08-19 20:23:13.184545-0500 SlowWorker[26369:3742775] Completed in 10.013715 seconds
 ```
 
-
+# Code explanation
 
 - It does exist a preexisting global queue that is always available dipatch_get_global_queue().
 - Parameters used in the code are priority and the second is unused with 0.
